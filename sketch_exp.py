@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 import matplotlib.pyplot as plt
 num = 12
-f = open('D:/nutsCloud/MasterLearning/research/ISPA2021/coding/MotivationExp/one_job_res', 'r')
+f = open('D:/nutsCloud/MasterLearning/research/ISPA2021/coding/MotivationExp/sketch_res_one_job', 'r')
 y = []
 for i in range(1, 5):
     y.append([float(x) for x in f.readline()[1:-2].split(',', num)])

@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib.ticker import MultipleLocator
 
 num = 12
-f = open('D:/nutsCloud/MasterLearning/research/ISPA2021/coding/MotivationExp/one_job_res', 'r')
+f = open('D:/nutsCloud/MasterLearning/research/ISPA2021/coding/MotivationExp/sketch_res_one_job', 'r')
 ff = open('D:/nutsCloud/MasterLearning/research/ISPA2021/coding/MotivationExp/dynamic_res_one_job', 'r')
 y = []
 y_dynamic = []
@@ -46,7 +46,7 @@ plt.plot(x_data, y_dynamic[0], 'g*-', ms=5, label='Decreased Time(Dynamic)')
 # ax2.legend(loc='upper right')
 # ax.legend(loc='upper left')
 plt.legend()
-plt.savefig('dynamic_adjust_pic/Figure_1.png')
+plt.savefig('dynamic_adjust_pic/single_job/Figure_1.png')
 plt.show()
 
 fig, ax = plt.subplots()
@@ -72,7 +72,7 @@ plt.plot(x_data, y_dynamic[1], 'g*-', ms=5, label='Decreased Time(Dynamic)')
 # ax2.legend(loc='upper right')
 # ax.legend(loc='upper left')
 plt.legend()
-plt.savefig('dynamic_adjust_pic/Figure_2.png')
+plt.savefig('dynamic_adjust_pic/single_job/Figure_2.png')
 plt.show()
 
 fig, ax = plt.subplots()
@@ -103,5 +103,5 @@ ax.plot(x_data[1:], y_data2[1:], 'yo-',label='Decreased Time / Memory Consumptio
 # ax2.legend(loc='upper right')
 # ax.legend(loc='upper left')
 plt.legend()
-plt.savefig('dynamic_adjust_pic/Figure_3.png')
+plt.savefig('dynamic_adjust_pic/single_job/Figure_3.png')
 plt.show()
