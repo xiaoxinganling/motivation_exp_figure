@@ -4,11 +4,11 @@ import numpy as np
 from matplotlib.ticker import MultipleLocator
 
 num = 12
-base_dir = 'C:/Users/小小冰/Desktop/MasterLearning'
-# base_dir = 'D:/nutsCloud/MasterLearning'
+# base_dir = 'C:/Users/小小冰/Desktop/MasterLearning'
+base_dir = 'D:/nutsCloud/MasterLearning'
 f = open(base_dir + '/research/ISPA2021/coding/MotivationExp/sketch_res_one_job', 'r')
-ff = open(base_dir + '/research/ISPA2021/coding/MotivationExp/dynamic_res_one_job', 'r')
-avg = open(base_dir + '/research/ISPA2021/coding/MotivationExp/dynamic_res_sequence_average_one_job', 'r')
+ff = open(base_dir + '/research/ISPA2021/coding/MotivationExp/dynamic_res_one_job_fixed_memory', 'r')
+avg = open(base_dir + '/research/ISPA2021/coding/MotivationExp/dynamic_res_one_job_sequence_average', 'r')
 y = []
 y_dynamic = []
 time_step = []
@@ -47,6 +47,7 @@ print(fixed_memory_dynamic)
 print(y)
 print(y_dynamic)
 x_data = [x for x in range(1, num)]
+out_degree_x = [x for x in range(1, len(y[0]) + 1)]
 bar_width=0.4
 fig, ax = plt.subplots()
 plt.grid(True)
@@ -58,8 +59,8 @@ ax.xaxis.set_major_locator(x_major_locator)
 # ax.yaxis.set_major_locator(y_major_locator)
 plt.ylabel('Time Decreased For Caching')  # Add a y-label to the axes.
 plt.title("The influence to time about task out degree(Static vs Dynamic)")  # Add a title to the axes.
-plt.bar([xx-0.2 for xx in x_data], y[0], label='Decreased Time(Static)', color='steelblue', alpha=0.8, width=bar_width)
-plt.plot(x_data, y[0], 'bo-', ms=5, label='Decreased Time(Static)')
+plt.bar([xx-0.2 for xx in out_degree_x], y[0], label='Decreased Time(Static)', color='steelblue', alpha=0.8, width=bar_width)
+plt.plot(out_degree_x, y[0], 'bo-', ms=5, label='Decreased Time(Static)')
 plt.bar([xx+0.2 for xx in x_data], y_dynamic[0], label='Decreased Time(Dynamic)', color='red', alpha=0.8, width=bar_width)
 plt.plot(x_data, y_dynamic[0], 'g*-', ms=5, label='Decreased Time(Dynamic)')
 #plt.bar(x_data, y_dynamic[0], label='Decreased Time(Dynamic)', color='steelblue', alpha=0.8)
@@ -71,7 +72,7 @@ plt.plot(x_data, y_dynamic[0], 'g*-', ms=5, label='Decreased Time(Dynamic)')
 # ax2.legend(loc='upper right')
 # ax.legend(loc='upper left')
 plt.legend()
-plt.savefig('dynamic_adjust_pic/single_job/Figure_1.png')
+plt.savefig('dynamic_adjust_pic/single_job/Figure_1_new.png')
 # plt.show()
 
 fig, ax = plt.subplots()
@@ -110,7 +111,7 @@ ax.xaxis.set_major_locator(x_major_locator)
 # ax.yaxis.set_major_locator(y_major_locator)
 y_data = []
 y_data2 = []
-for i in range(0, len(y[0])):
+for i in range(0, len(y[1])):
     y_data.append(y[1][i] / time_step[i])
     y_data2.append(y_dynamic[1][i] / time_step[i])
 
@@ -147,8 +148,8 @@ ax2 = ax.twinx()
 ax.set_ylabel('Time Decreased For Caching')  # Add a y-label to the axes.
 ax2.set_ylabel('Memory Consumption')
 plt.title("The influence to time and memory consumption \n about task out degree(Static vs Dynamic)")  # Add a title to the axes.
-ax2.bar([xx-0.2 for xx in x_data[1:]], y_time[0][1:], label='Mem Consumption(Static)', color='steelblue', alpha=0.8, width=bar_width)
-ax.plot(x_data[1:], y[0][1:], 'bo-', ms=5, label='Decreased Time(Static)')
+ax2.bar([xx-0.2 for xx in out_degree_x[1:]], y_time[0][1:], label='Mem Consumption(Static)', color='steelblue', alpha=0.8, width=bar_width)
+ax.plot(out_degree_x[1:], y[0][1:], 'bo-', ms=5, label='Decreased Time(Static)')
 ax2.bar([xx+0.2 for xx in x_data[1:]], fixed_memory_dynamic[1][1:], label='Mem Consumption(Dynamic)', color='red', alpha=0.8, width=bar_width)
 ax.plot(x_data[1:], fixed_memory_dynamic[0][1:], 'g*-', ms=5, label='Decreased Time(Dynamic)')
 print(y[0])
@@ -162,9 +163,9 @@ print(fixed_memory_dynamic[0])
 # ax2.legend(loc='upper right')
 # ax.legend(loc='upper left')
 # plt.legend()
-ax.legend(loc='upper right')
-ax2.legend(loc='upper left')
-plt.savefig('dynamic_adjust_pic/single_job/Figure_4.png')
+ax.legend(loc='upper left')
+ax2.legend(loc='upper right')
+plt.savefig('dynamic_adjust_pic/single_job/Figure_4_new.png')
 # plt.show()
 
 # step
@@ -199,7 +200,7 @@ ax.xaxis.set_major_locator(x_major_locator)
 # ax.yaxis.set_major_locator(y_major_locator)
 y_data = []
 y_data2 = []
-for i in range(0, len(y[0])):
+for i in range(0, len(y[1])):
     y_data.append(y[1][i] / time_step[i])
     y_data2.append(fixed_memory_dynamic[2][i] / fixed_memory_dynamic[3][i])
 
