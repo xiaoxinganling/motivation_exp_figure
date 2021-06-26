@@ -14,6 +14,7 @@ def _get_colors(num_colors):
         colors.append(colorsys.hls_to_rgb(hue, lightness, saturation))
     return colors
 
+
 base_dir = 'D:/nutsCloud'
 odf = open(base_dir + '/MasterLearning/research/ISPA2021/coding/MotivationExp/sketch_res_multiple_job_out_degree', 'r')
 sf = open(base_dir + '/MasterLearning/research/ISPA2021/coding/MotivationExp/sketch_res_multiple_job_step', 'r')
@@ -59,6 +60,7 @@ for i in range(0, len(out_degree_res_time)):
             color=colors_od[i], marker='o',
             label="Decreased time-{}".format(str(len(out_degree_res_time[i]))))
 ax.legend()
+fig.set_size_inches(18.5, 10.5)
 plt.savefig('../sketch_pic/multi_job/Figure_1_new.png')
 #plt.show()
 
@@ -82,6 +84,7 @@ for i in range(0, len(out_degree_res_mem)):
             color=colors_od[i], marker='o',
             label="Memory Consumption-{}".format(str(len(out_degree_res_mem[i]))))
 ax.legend()
+fig.set_size_inches(18.5, 10.5)
 plt.savefig('../sketch_pic/multi_job/Figure_2_new.png')
 #plt.show()
 
@@ -104,6 +107,7 @@ for i in range(0, len(step_res_time)):
             color=colors_s[i], marker='o',
             label="Decreased time-{}".format(str(len(step_res_time[i]))))
 ax.legend()
+fig.set_size_inches(18.5, 10.5)
 plt.savefig('../sketch_pic/multi_job/Figure_3_new.png')
 #plt.show()
 
@@ -126,6 +130,7 @@ for i in range(0, len(step_res_mem)):
             color=colors_s[i], marker='o',
             label=tag)
 ax.legend()
+fig.set_size_inches(18.5, 10.5)
 plt.savefig('../sketch_pic/multi_job/Figure_4_new.png')
 #plt.show()
 
@@ -153,6 +158,7 @@ for i in range(0, len(step_res_mem)):
             color=colors_s[i], marker='o',
             label=tag)
 ax.legend()
+fig.set_size_inches(18.5, 10.5)
 plt.savefig('../sketch_pic/multi_job/Figure_5_new.png')
 plt.show()
 
